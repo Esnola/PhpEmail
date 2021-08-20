@@ -9,7 +9,7 @@
         private $password;
         private $puerto;
         private $mailer;
-        private $remitente = "BlackSwan Finances";
+        private $remitente = REMITTER_NAME;
 
         function __construct($host, $username, $password, $puerto)
         {
@@ -33,8 +33,8 @@
 
         public function EnviarCorreos($correo, $nombre, $asunto, $mensaje)
         {
-            $this->mailer->setFrom($this->username, $nombre);
-            $this->mailer->addAddress($correo, $this->remitente);                            
+            $this->mailer->setFrom($this->username, $this->remitente);
+            $this->mailer->addAddress($correo, $nombre);                            
             $this->mailer->Subject = $asunto;
             $this->mailer->Body    = $mensaje;
             $this->mailer->send();
