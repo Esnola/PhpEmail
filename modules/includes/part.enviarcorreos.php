@@ -4,9 +4,22 @@
                 <h1 class="text-info">Envio de Correos</h1>
             </div>
             <div class="mt-2">
+                <h4 class="text-success d-flex justify-content-center p-1">Lista de correos</h4>
+                
+                    <form method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="d-flex d-flex-row justify-content-center">
+                            <label for="email" class="h6 text-dark">Importar CSV</label>
+                        </div>
+                        <p class="text-center"><small>el csv con el encabezado del archivo "correo", "nombre"</small></p>
+                        <div class="d-flex d-flex-row justify-content-center mt-2">
+                            <input type="file" name="csv_imp" id="csv_imp" accept=".csv">
+                        </div>
+                    </div>
+                    </form>
+                
                 <form action="" method="post">
                     <div class="form-group">
-                        <h4 class="text-success d-flex justify-content-center p-1">Lista de correos</h4>
                         <div class="overflow-auto inp-datos">
                             <div class="d-flex d-flex-row justify-content-center">
                                 <div class="p-3">

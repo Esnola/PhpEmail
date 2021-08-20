@@ -7,11 +7,38 @@ $(function() {
         </div>
         <div class="p-3">
             <label for="nombre" class="h6 text-dark">Nombre</label>
-            <input type="email" class="form-control nombre" name="nombre[]">
+            <input type="text" class="form-control nombre" name="nombre[]">
         </div>
         </div>`);
         $('.inp-datos').scrollTop(500000);
         
+    });
+
+    //IMPORTACION
+    function removeExtraSpace(stringData) {
+        stringData = stringData.replace(/,( *)/gm, ",")  // remove extra space
+        stringData = stringData.replace(/^ *| *$/gm, "") // remove space on the beginning and end.
+        return stringData  
+    }
+    $('#csv_imp').change((e) => {
+        const csv = e.currentTarget.files[0];
+        csv.text().then((e) => {
+            const data = removeExtraSpace(e);
+            const data_objet = $.csv.toObjects(data)
+            data_objet.forEach(e => {
+                $('.inp-datos').prepend(`<div class="d-flex d-flex-row justify-content-center ">
+                    <div class="p-3">
+                        <label for="email" class="h6 text-dark">Correo</label>
+                        <input type="email" class="form-control correos" value="${e.correo}" name="correos[]">
+                    </div>
+                    <div class="p-3">
+                        <label for="nombre" class="h6 text-dark">Nombre</label>
+                        <input type="text" class="form-control nombre" value="${e.nombre}" name="nombre[]">
+                    </div>
+                    </div>`);
+                $('.inp-datos').scrollTop(500000);
+            });
+        });
     });
     
 
