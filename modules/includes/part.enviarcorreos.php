@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="p-3">
                                     <label for="nombre" class="h6 text-dark">Nombre</label>
-                                    <input type="email" class="form-control nombre" name="nombre[]">
+                                    <input type="text" class="form-control nombre" name="nombre[]">
                                 </div>
                             </div>
                         </div>
@@ -31,9 +31,10 @@
                         <label for="mensaje" class="h4 text-success d-flex justify-content-center p-1">Mensaje</label>
                         <textarea class="form-control text-center" name="mensaje" id="mensaje" rows="8" placeholder="Agregar Mensaje" required></textarea>
                     </div>
-                    <div class="form-group d-flex justify-content-center mt-4">
+                    <div class="form-group d-flex justify-content-center mt-4 send">
                         <button type="submit" id="sendemail" class="btn btn-outline-info">Enviar Correos</button>
                     </div>
+                    
                 </form>
             </div>
             

@@ -55,6 +55,11 @@ $(function() {
 
     $('#sendemail').on('click', (e) =>{
         e.preventDefault();
+        $('#sendemail').remove();
+        $('.send').append(`<button class="btn btn-primary" type="button" id="sendemail" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            <span class="sr-only">Enviando...</span>
+        </button>`)
         let correos = $(".correos").map(function(){return $(this).val();}).get();
         const nombres = $(".nombre").map(function(){return $(this).val();}).get();
         const mensaje = $('#mensaje').val();
@@ -97,6 +102,8 @@ $(function() {
                     icon: "error"
                 });
             }
+            $('#sendemail').remove();
+            $('.send').append(`<button type="submit" id="sendemail" class="btn btn-outline-info">Enviar Correos</button>`)
         });
     });
 
