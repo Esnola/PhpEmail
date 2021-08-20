@@ -8,7 +8,7 @@
             mb_internal_encoding( 'UTF-8' );
             mb_regex_encoding( 'UTF-8' );
             try{
-                $this->conexion = new mysqli('localhost', 'root', '', 'mailerphp');
+                $this->conexion = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
                 $this->conexion->set_charset('utf-8');
             }catch(Exception $e){
                 die('Problemas al conectarse a la base de datos.');
