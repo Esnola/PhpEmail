@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 20-08-2021 a las 02:41:54
+-- Tiempo de generación: 20-08-2021 a las 03:04:25
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.4.9
 
@@ -34,6 +34,13 @@ CREATE TABLE IF NOT EXISTS `config_correo` (
   `password` varchar(255) DEFAULT NULL,
   `puerto` int(10) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `config_correo`
+--
+
+INSERT INTO `config_correo` (`host`, `username`, `password`, `puerto`) VALUES
+(NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

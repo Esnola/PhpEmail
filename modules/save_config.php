@@ -4,7 +4,7 @@
         $correo = $_POST['correo'];
         $pwd = $_POST['password'];
         $puerto = $_POST['puerto'];
-
+        
         $guardado = $db->SaveConfig($host, $correo, $pwd, $puerto);
         if($guardado){
             echo json_encode( array(
