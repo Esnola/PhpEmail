@@ -56,7 +56,7 @@
 
        public function CorreosEnviados($object = false, $limit=10, $offset=0)
        {
-           $query = "SELECT * FROM correos_enviados LIMIT $limit OFFSET $offset;";
+           $query = "SELECT * FROM correos_enviados LIMIT $limit OFFSET $offset ORDER BY DESC;";
            $results = $this->conexion->query($query);
            if($this->conexion->error){
                die('Problemas al obtener los datos');
