@@ -69,7 +69,7 @@ $(function() {
 
         let nombres_verify = [];
         nombres.forEach(nombre => {
-            if(nombre.length > 5){
+            if(nombre.length > 2){
                 nombres_verify.push(nombre)
             }
         })
