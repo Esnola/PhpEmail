@@ -1,5 +1,4 @@
 $(function() {
-    console.log( "ready!" );
     $('#add_data').on('click', ()=>{
         $('.inp-datos').append(`<div class="d-flex d-flex-row justify-content-center ">
         <div class="p-3">
@@ -76,7 +75,7 @@ $(function() {
         })
 
         $.post({
-            url: '/correos/enviar',
+            url: '/correos/enviando',
             data: {
                 correos: correos_verify,
                 nombres: nombres_verify,
@@ -97,6 +96,35 @@ $(function() {
                     text: data.response,
                     icon: "error"
                 });
+            }
+        });
+    });
+
+    $('#cargarmas').on('click', (e) =>{
+        e.preventDefault();
+        $.post({
+            url: '/correos/paginate',
+            data: {
+                offset: offSet,
+                limit: 10
+            }
+        }).done((response) =>{
+            const data = JSON.parse(response);
+            if(data.data.length > 0){
+                data.data.forEach((msj) => {
+                    offSet++
+                    $('#tbody-mensajes').append(`<tr class="something">
+                    <th scope="row">${offSet}</th>
+                    <td>${msj.correo}</td>
+                    <td>${msj.asunto}</td>
+                    <td class="collapse" id="mensaje_colapse<?=$index?>" aria-expanded="true">${msj.mensaje}</td>
+                    <td>
+                        <a class="btn btn-outline-success" data-bs-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample" href="#mensaje_colapse${offSet}">Ver Mensaje</a>
+                    </td>
+                </tr>`);
+                });
+            }else{
+                $('#cargarmas').remove();
             }
         });
     });

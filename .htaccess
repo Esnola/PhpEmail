@@ -10,6 +10,10 @@ RewriteRule ^correos/config$ ./index.php?act=config [L]
 
 RewriteRule ^correos/config/guardar$ ./index.php?act=guardar_config [L]
 
-RewriteRule ^correos/enviar$ ./index.php?act=enviar_correos [L]
+RewriteRule ^correos/enviar$ ./index.php?act=correos_inp [L]
+RewriteRule ^correos/enviando$ ./index.php?act=enviar_correos [L]
+
+RewriteRule ^correos/paginate$ ./index.php?act=cargarmas [L]
+
 
 

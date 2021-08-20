@@ -54,6 +54,22 @@
            }
        }
 
+       public function CorreosEnviados($object = false, $limit=10, $offset=0)
+       {
+           $query = "SELECT * FROM correos_enviados LIMIT $limit OFFSET $offset;";
+           $results = $this->conexion->query($query);
+           if($this->conexion->error){
+               die('Problemas al obtener los datos');
+           }else{
+               $row = array();
+               while( $r = ( !$object ) ? $results->fetch_assoc() : $results->fetch_object() )
+               {
+                   $row[] = $r;
+                }
+                return $row; 
+            }
+       }
+
        public function GuardarEnviados($correo, $nombre, $asunto, $mensaje)
        {    
            $filtrado_mensaje = mysqli_real_escape_string($this->conexion, $mensaje);
